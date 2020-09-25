@@ -23,7 +23,7 @@ public class HAS_AlarmService extends IntentService {
     private static final int NOTIFICATION_ID = 42;
 
     Cursor cursor;
-    public static PendingIntent getReminderPendingIntent(Context context, Uri uri) {
+    public static PendingIntent getLembretePendingIntent(Context context, Uri uri) {
         Intent action = new Intent(context, HAS_AlarmService.class);
         action.setData(uri);
         return PendingIntent.getService(context, 0, action, PendingIntent.FLAG_UPDATE_CURRENT);

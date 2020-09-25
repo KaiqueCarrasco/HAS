@@ -21,7 +21,7 @@ public class AgendadorAlarme {
         AlarmManager manager = GerenciadorDeAlarme.getAlarmManager(context);
 
         PendingIntent operation =
-                HAS_AlarmService.getReminderPendingIntent(context, reminderTask);
+                HAS_AlarmService.getLembretePendingIntent(context, reminderTask);
 
 
         if (Build.VERSION.SDK_INT >= 23) {
@@ -43,7 +43,7 @@ public class AgendadorAlarme {
         AlarmManager manager = GerenciadorDeAlarme.getAlarmManager(context);
 
         PendingIntent operation =
-                HAS_AlarmService.getReminderPendingIntent(context, reminderTask);
+                HAS_AlarmService.getLembretePendingIntent(context, reminderTask);
 
         manager.setRepeating(AlarmManager.RTC_WAKEUP, alarmTime, RepeatTime, operation);
 
@@ -54,7 +54,7 @@ public class AgendadorAlarme {
         AlarmManager manager = GerenciadorDeAlarme.getAlarmManager(context);
 
         PendingIntent operation =
-                HAS_AlarmService.getReminderPendingIntent(context, reminderTask);
+                HAS_AlarmService.getLembretePendingIntent(context, reminderTask);
 
         manager.cancel(operation);
 

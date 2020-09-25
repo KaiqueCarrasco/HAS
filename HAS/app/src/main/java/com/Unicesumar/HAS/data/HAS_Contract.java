@@ -14,7 +14,7 @@ public class HAS_Contract {
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
-    public static final String PATH_VEHICLE = "reminder-path";
+    public static final String PATH_VEHICLE = "HAS-path";
 
     public static final class HAS_Acesso implements BaseColumns {
 

@@ -17,18 +17,18 @@ public class HAS_Provider extends ContentProvider {
 
     public static final String LOG_TAG = HAS_Provider.class.getSimpleName();
 
-    private static final int REMINDER = 100;
+    private static final int LEMBRETE = 100;
 
-    private static final int REMINDER_ID = 101;
+    private static final int LEMBRETE_ID = 101;
 
 
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
 
-        sUriMatcher.addURI(HAS_Contract.CONTENT_AUTHORITY, HAS_Contract.PATH_VEHICLE, REMINDER);
+        sUriMatcher.addURI(HAS_Contract.CONTENT_AUTHORITY, HAS_Contract.PATH_VEHICLE, LEMBRETE);
 
-        sUriMatcher.addURI(HAS_Contract.CONTENT_AUTHORITY, HAS_Contract.PATH_VEHICLE + "/#", REMINDER_ID);
+        sUriMatcher.addURI(HAS_Contract.CONTENT_AUTHORITY, HAS_Contract.PATH_VEHICLE + "/#", LEMBRETE_ID);
 
     }
 
@@ -51,11 +51,11 @@ public class HAS_Provider extends ContentProvider {
 
         int match = sUriMatcher.match(uri);
         switch (match) {
-            case REMINDER:
+            case LEMBRETE:
                 cursor = database.query(HAS_Contract.HAS_Acesso.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
-            case REMINDER_ID:
+            case LEMBRETE_ID:
                 selection = HAS_Contract.HAS_Acesso._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
 
@@ -76,9 +76,9 @@ public class HAS_Provider extends ContentProvider {
     public String getType(@NonNull Uri uri) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
-            case REMINDER:
+            case LEMBRETE:
                 return HAS_Contract.HAS_Acesso.CONTENT_LIST_TYPE;
-            case REMINDER_ID:
+            case LEMBRETE_ID:
                 return HAS_Contract.HAS_Acesso.CONTENT_ITEM_TYPE;
             default:
                 throw new IllegalStateException("URI desconhecido " + uri + " with match " + match);
@@ -90,7 +90,7 @@ public class HAS_Provider extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
-            case REMINDER:
+            case LEMBRETE:
                 return insertLembrete(uri, contentValues);
 
             default:
@@ -124,10 +124,10 @@ public class HAS_Provider extends ContentProvider {
 
         final int match = sUriMatcher.match(uri);
         switch (match) {
-            case REMINDER:
+            case LEMBRETE:
                 rowsDeleted = database.delete(HAS_Contract.HAS_Acesso.TABLE_NAME, selection, selectionArgs);
                 break;
-            case REMINDER_ID:
+            case LEMBRETE_ID:
                 selection = HAS_Contract.HAS_Acesso._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
                 rowsDeleted = database.delete(HAS_Contract.HAS_Acesso.TABLE_NAME, selection, selectionArgs);
@@ -148,9 +148,9 @@ public class HAS_Provider extends ContentProvider {
                       String[] selectionArgs) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
-            case REMINDER:
+            case LEMBRETE:
                 return updateLembrete(uri, contentValues, selection, selectionArgs);
-            case REMINDER_ID:
+            case LEMBRETE_ID:
                 selection = HAS_Contract.HAS_Acesso._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
                 return updateLembrete(uri, contentValues, selection, selectionArgs);
