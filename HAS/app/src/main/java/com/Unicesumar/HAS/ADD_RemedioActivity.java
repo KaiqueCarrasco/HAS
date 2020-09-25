@@ -655,7 +655,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
 
 
 
-            // Update the views on the screen with the values from the database
+            // Atualiza as views na tela com os valores do banco de dados
             mTitleText.setText(title);
             mDateText.setText(date);
             mTimeText.setText(time);
