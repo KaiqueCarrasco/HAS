@@ -32,19 +32,20 @@ public class CursorAlarmeAdapter extends CursorAdapter {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-        mTitleText = (TextView) view.findViewById(R.id.recycle_title);
-        mDateAndTimeText = (TextView) view.findViewById(R.id.recycle_date_time);
-        mRepeatInfoText = (TextView) view.findViewById(R.id.recycle_repeat_info);
-        mActiveImage = (ImageView) view.findViewById(R.id.active_image);
-        mThumbnailImage = (ImageView) view.findViewById(R.id.thumbnail_image);
 
-        int tituloIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TITLE);
+        mRepeatInfoText = (TextView) view.findViewById(R.id.recycle_repeat_info);
+        mThumbnailImage = (ImageView) view.findViewById(R.id.thumbnail_image);
+        mDateAndTimeText = (TextView) view.findViewById(R.id.recycle_date_time);
+        mActiveImage = (ImageView) view.findViewById(R.id.active_image);
+        mTitleText = (TextView) view.findViewById(R.id.recycle_title);
+
+        int ativaIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_ACTIVE);
+        int tipoRepeticaoIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_TYPE);
         int dataIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_DATE);
+        int naoRepetirIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_NO);
         int horaIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TIME);
         int repetirIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT);
-        int naoRepetirIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_NO);
-        int tipoRepeticaoIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_TYPE);
-        int ativaIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_ACTIVE);
+        int tituloIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TITLE);
 
         String title = cursor.getString(tituloIndiceColuna);
         String date = cursor.getString(dataIndiceColuna);
@@ -57,17 +58,17 @@ public class CursorAlarmeAdapter extends CursorAdapter {
         String dateTime = date + " " + time;
 
 
-        setReminderTitle(title);
-        setReminderDateTime(dateTime);
-        setReminderRepeatInfo(repeat, repeatNo, repeatType);
-        setActiveImage(active);
+        setTituloLembrete(title);
+        setLembreteDateTime(dateTime);
+        setLembreteRepetiçãoInfo(repeat, repeatNo, repeatType);
+        setImagemAtiva(active);
 
 
 
 
     }
 
-    public void setReminderTitle(String title) {
+    public void setTituloLembrete(String title) {
         mTitleText.setText(title);
         String letter = "A";
 
@@ -83,11 +84,11 @@ public class CursorAlarmeAdapter extends CursorAdapter {
         mThumbnailImage.setImageDrawable(mDrawableBuilder);
     }
 
-    public void setReminderDateTime(String datetime) {
+    public void setLembreteDateTime(String datetime) {
         mDateAndTimeText.setText(datetime);
     }
 
-    public void setReminderRepeatInfo(String repeat, String repeatNo, String repeatType) {
+    public void setLembreteRepetiçãoInfo(String repeat, String repeatNo, String repeatType) {
         if(repeat.equals("true")){
             mRepeatInfoText.setText("A cada " + repeatNo + " " + repeatType + "(s)");
         }else if (repeat.equals("false")) {
@@ -96,7 +97,7 @@ public class CursorAlarmeAdapter extends CursorAdapter {
     }
 
     // Muda a imagem para "On" ou "Off"
-    public void setActiveImage(String active){
+    public void setImagemAtiva(String active){
         if(active.equals("true")){
             mActiveImage.setImageResource(R.drawable.ic_notifications_on_white_24dp);
         }else if (active.equals("false")) {
