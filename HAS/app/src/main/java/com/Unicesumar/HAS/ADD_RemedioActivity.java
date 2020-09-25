@@ -312,7 +312,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
 
         // criar lista
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Select Type");
+        builder.setTitle("Selecionar Tipo Repetição");
         builder.setItems(items, new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int item) {
