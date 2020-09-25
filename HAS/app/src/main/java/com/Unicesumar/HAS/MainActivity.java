@@ -94,12 +94,12 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
         };
 
-        return new CursorLoader(this,   // Parent activity context
-                HAS_Contract.HAS_Acesso.CONTENT_URI,   // Provider content URI to query
-                projection,             // Columns to include in the resulting Cursor
-                null,                   // No selection clause
-                null,                   // No selection arguments
-                null);                  // Default sort order
+        return new CursorLoader(this,
+                HAS_Contract.HAS_Acesso.CONTENT_URI,  
+                projection,
+                null,
+                null,
+                null);
 
     }
 
