@@ -26,7 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.Unicesumar.HAS.data.HAS_Contract;
-import com.Unicesumar.HAS.reminder.AgendadorAlarme;
+import com.Unicesumar.HAS.HAS.AgendadorAlarme;
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;

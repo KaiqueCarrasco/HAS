@@ -1,4 +1,4 @@
-package com.Unicesumar.HAS.reminder;
+package com.Unicesumar.HAS.HAS;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
