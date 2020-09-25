@@ -632,9 +632,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
         if (cursor == null || cursor.getCount() < 1) {
             return;
         }
-
-        // Proceed with moving to the first row of the cursor and reading data from it
-        // (This should be the only row in the cursor)
+        
         if (cursor.moveToFirst()) {
             int titleColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TITLE);
             int dateColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_DATE);
