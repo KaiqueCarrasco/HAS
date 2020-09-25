@@ -25,7 +25,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.Unicesumar.HAS.R;
 import com.Unicesumar.HAS.data.HAS_Contract;
 import com.Unicesumar.HAS.reminder.AgendadorAlarme;
 import com.getbase.floatingactionbutton.FloatingActionButton;
@@ -223,7 +222,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // Selecionador de horario (time picker)
-    public void setTime(View v){
+    public void definirHora(View v){
         Calendar now = Calendar.getInstance();
         TimePickerDialog tpd = TimePickerDialog.newInstance(
                 this,
@@ -236,7 +235,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // Selecionador de data (date picker)
-    public void setDate(View v){
+    public void definirData(View v){
         Calendar now = Calendar.getInstance();
         DatePickerDialog dpd = DatePickerDialog.newInstance(
                 this,
@@ -272,7 +271,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // clicar no botao de ativar
-    public void selectFab1(View v) {
+    public void selecionarBotao1(View v) {
         mFAB1 = (FloatingActionButton) findViewById(R.id.starred1);
         mFAB1.setVisibility(View.GONE);
         mFAB2 = (FloatingActionButton) findViewById(R.id.starred2);
@@ -281,7 +280,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // clicar no botao desativar
-    public void selectFab2(View v) {
+    public void selecionarBotao2(View v) {
         mFAB2 = (FloatingActionButton) findViewById(R.id.starred2);
         mFAB2.setVisibility(View.GONE);
         mFAB1 = (FloatingActionButton) findViewById(R.id.starred1);
@@ -290,7 +289,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // clicar no botao de repetiçao
-    public void onSwitchRepeat(View view) {
+    public void botaoRepetir(View view) {
         boolean on = ((Switch) view).isChecked();
         if (on) {
             mRepeat = "true";
@@ -302,7 +301,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // clicar no botao do tipo de repetição
-    public void selectRepeatType(View v){
+    public void botaoTipoDeRepeticao(View v){
         final String[] items = new String[5];
 
         items[0] = "Minuto";
@@ -328,7 +327,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     }
 
     // clicar no botao de intervalo de repetição
-    public void setRepeatNo(View v){
+    public void setNumeroDeRepeticoes(View v){
         AlertDialog.Builder alert = new AlertDialog.Builder(this);
         alert.setTitle("Adicionar Numero");
 
@@ -388,12 +387,12 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
                 }
 
                 else {
-                    saveReminder();
+                    salvarLembrete();
                     finish();
                 }
                 return true;
             case R.id.discard_reminder:
-                showDeleteConfirmationDialog();
+                mostrarConfirmacaoDeExclusao();
                 return true;
             case android.R.id.home:
                 if (!mVehicleHasChanged) {
@@ -410,14 +409,14 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
                             }
                         };
 
-                showUnsavedChangesDialog(discardButtonClickListener);
+                mostrarMudancasNaoSalvas(discardButtonClickListener);
                 return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
 
-    private void showUnsavedChangesDialog(
+    private void mostrarMudancasNaoSalvas(
             DialogInterface.OnClickListener discardButtonClickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.unsaved_changes_dialog_msg);
@@ -434,12 +433,12 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
         alertDialog.show();
     }
 
-    private void showDeleteConfirmationDialog() {
+    private void mostrarConfirmacaoDeExclusao() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.delete_dialog_msg);
         builder.setPositiveButton(R.string.delete, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                deleteReminder();
+                deletarLembrete();
             }
         });
         builder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
@@ -454,7 +453,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
         alertDialog.show();
     }
 
-    private void deleteReminder() {
+    private void deletarLembrete() {
         if (mCurrentReminderUri != null) {
             int rowsDeleted = getContentResolver().delete(mCurrentReminderUri, null, null);
 
@@ -470,7 +469,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
         finish();
     }
 
-    public void saveReminder(){
+    public void salvarLembrete(){
 
         ContentValues values = new ContentValues();
 
