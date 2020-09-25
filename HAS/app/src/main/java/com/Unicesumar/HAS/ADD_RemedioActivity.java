@@ -90,7 +90,7 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_reminder);
+        setContentView(R.layout.activity_add_lembrete);
 
         Intent intent = getIntent();
         mCurrentReminderUri = intent.getData();
