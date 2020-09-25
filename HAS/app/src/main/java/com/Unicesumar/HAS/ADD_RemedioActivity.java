@@ -582,21 +582,21 @@ public class ADD_RemedioActivity extends AppCompatActivity implements
         }
 
         if (cursor.moveToFirst()) {
-            int titleColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TITLE);
-            int dateColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_DATE);
-            int timeColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TIME);
-            int repeatColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT);
-            int repeatNoColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_NO);
-            int repeatTypeColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_TYPE);
-            int activeColumnIndex = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_ACTIVE);
+            int tituloIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TITLE);
+            int dataIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_DATE);
+            int horaIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_TIME);
+            int repetirIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT);
+            int naoRepetirIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_NO);
+            int tipoRepeticaoIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_REPEAT_TYPE);
+            int ativaIndiceColuna = cursor.getColumnIndex(HAS_Contract.HAS_Acesso.KEY_ACTIVE);
 
-            String title = cursor.getString(titleColumnIndex);
-            String date = cursor.getString(dateColumnIndex);
-            String time = cursor.getString(timeColumnIndex);
-            String repeat = cursor.getString(repeatColumnIndex);
-            String repeatNo = cursor.getString(repeatNoColumnIndex);
-            String repeatType = cursor.getString(repeatTypeColumnIndex);
-            String active = cursor.getString(activeColumnIndex);
+            String title = cursor.getString(tituloIndiceColuna);
+            String date = cursor.getString(dataIndiceColuna);
+            String time = cursor.getString(horaIndiceColuna);
+            String repeat = cursor.getString(repetirIndiceColuna);
+            String repeatNo = cursor.getString(naoRepetirIndiceColuna);
+            String repeatType = cursor.getString(tipoRepeticaoIndiceColuna);
+            String active = cursor.getString(ativaIndiceColuna);
 
 
 
