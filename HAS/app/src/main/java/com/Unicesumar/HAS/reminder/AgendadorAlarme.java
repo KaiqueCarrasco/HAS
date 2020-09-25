@@ -50,7 +50,7 @@ public class AgendadorAlarme {
 
     }
 
-    public void cancelAlarme(Context context, Uri reminderTask) {
+    public void cancelarAlarme(Context context, Uri reminderTask) {
         AlarmManager manager = GerenciadorDeAlarme.getAlarmManager(context);
 
         PendingIntent operation =

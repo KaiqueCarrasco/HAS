@@ -81,7 +81,7 @@ public class HAS_Provider extends ContentProvider {
             case REMINDER_ID:
                 return HAS_Contract.HAS_Acesso.CONTENT_ITEM_TYPE;
             default:
-                throw new IllegalStateException("Unknown URI " + uri + " with match " + match);
+                throw new IllegalStateException("URI desconhecido " + uri + " with match " + match);
         }
     }
 
@@ -94,7 +94,7 @@ public class HAS_Provider extends ContentProvider {
                 return insertLembrete(uri, contentValues);
 
             default:
-                throw new IllegalArgumentException("Insertion is not supported for " + uri);
+                throw new IllegalArgumentException("Inserção não suportada para " + uri);
         }
     }
 
@@ -105,7 +105,7 @@ public class HAS_Provider extends ContentProvider {
         long id = database.insert(HAS_Contract.HAS_Acesso.TABLE_NAME, null, values);
 
         if (id == -1) {
-            Log.e(LOG_TAG, "Failed to insert row for " + uri);
+            Log.e(LOG_TAG, "Falha ao inserir coluna para " + uri);
             return null;
         }
 
@@ -133,7 +133,7 @@ public class HAS_Provider extends ContentProvider {
                 rowsDeleted = database.delete(HAS_Contract.HAS_Acesso.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
-                throw new IllegalArgumentException("Deletion is not supported for " + uri);
+                throw new IllegalArgumentException("Não é possível deletar para " + uri);
         }
 
         if (rowsDeleted != 0) {
@@ -155,7 +155,7 @@ public class HAS_Provider extends ContentProvider {
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
                 return updateLembrete(uri, contentValues, selection, selectionArgs);
             default:
-                throw new IllegalArgumentException("Update is not supported for " + uri);
+                throw new IllegalArgumentException("Não é possível atualizar para " + uri);
         }
     }
 

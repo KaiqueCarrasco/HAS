@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private FloatingActionButton mBotãoAdicionar;
     private Toolbar mToolbar;
     CursorAlarmeAdapter mCursorAlarme;
-    HAS_DbHelper alarmReminderDbHelper = new HAS_DbHelper(this);
+    HAS_DbHelper HASDbHelper = new HAS_DbHelper(this);
     ListView ListaMedicação;
     ProgressDialog prgDialog;
 
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
                 Uri currentVehicleUri = ContentUris.withAppendedId(HAS_Contract.HAS_Acesso.CONTENT_URI, id);
 
-                // Set the URI on the data field of the intent
                 intent.setData(currentVehicleUri);
 
                 startActivity(intent);

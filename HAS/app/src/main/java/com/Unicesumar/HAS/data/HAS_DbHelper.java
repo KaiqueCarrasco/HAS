@@ -20,7 +20,6 @@ public class HAS_DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        // Create a String that contains the SQL statement to create the reminder table
         String SQL_CREATE_ALARM_TABLE =  "CREATE TABLE " + HAS_Contract.HAS_Acesso.TABLE_NAME + " ("
                 + HAS_Contract.HAS_Acesso._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + HAS_Contract.HAS_Acesso.KEY_TITLE + " TEXT NOT NULL, "
@@ -31,7 +30,6 @@ public class HAS_DbHelper extends SQLiteOpenHelper {
                 + HAS_Contract.HAS_Acesso.KEY_REPEAT_TYPE + " TEXT NOT NULL, "
                 + HAS_Contract.HAS_Acesso.KEY_ACTIVE + " TEXT NOT NULL " + " );";
 
-        // Execute the SQL statement
         sqLiteDatabase.execSQL(SQL_CREATE_ALARM_TABLE);
 
 

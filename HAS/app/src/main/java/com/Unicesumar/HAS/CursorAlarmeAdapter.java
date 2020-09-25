@@ -68,7 +68,6 @@ public class CursorAlarmeAdapter extends CursorAdapter {
 
     }
 
-    // Set reminder title view
     public void setReminderTitle(String title) {
         mTitleText.setText(title);
         String letter = "A";
@@ -79,27 +78,25 @@ public class CursorAlarmeAdapter extends CursorAdapter {
 
         int color = mColorGenerator.getRandomColor();
 
-        // Create a circular icon consisting of  a random background colour and first letter of title
+        // Cria um ícone com cor aleatória e a primeira letra do título
         mDrawableBuilder = TextDrawable.builder()
                 .buildRound(letter, color);
         mThumbnailImage.setImageDrawable(mDrawableBuilder);
     }
 
-    // Set date and time views
     public void setReminderDateTime(String datetime) {
         mDateAndTimeText.setText(datetime);
     }
 
-    // Set repeat views
     public void setReminderRepeatInfo(String repeat, String repeatNo, String repeatType) {
         if(repeat.equals("true")){
-            mRepeatInfoText.setText("Todo " + repeatNo + " " + repeatType + "(s)");
+            mRepeatInfoText.setText("A cada " + repeatNo + " " + repeatType + "(s)");
         }else if (repeat.equals("false")) {
             mRepeatInfoText.setText("Repeat Off");
         }
     }
 
-    // Set active image as on or off
+    // Muda a imagem para "On" ou "Off"
     public void setActiveImage(String active){
         if(active.equals("true")){
             mActiveImage.setImageResource(R.drawable.ic_notifications_on_white_24dp);

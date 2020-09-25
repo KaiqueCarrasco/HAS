@@ -27,32 +27,32 @@
         <TextView
             android:id="@+id/recycle_title"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:layout_height="wrap_content"
             android:textColor="@color/abc_primary_text_material_dark"
-            tools:text="Title"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            tools:text="Título" />
 
         <TextView
             android:id="@+id/recycle_date_time"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:textColor="@color/abc_secondary_text_material_dark"
-            tools:text="Date and Time"/>
+            android:textSize="15sp"
+            tools:text="Data e Hora" />
 
         <TextView
             android:id="@+id/recycle_repeat_info"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:ellipsize="marquee"
             android:singleLine="true"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
             android:textColor="@color/abc_secondary_text_material_dark"
-            tools:text="Repeat No and Type"/>
+            android:textSize="15sp"
+            tools:text="Repetir e tipo" />
 
     </LinearLayout>
 
